@@ -1,3 +1,4 @@
+import { useState, useEffect, useCallback } from "react"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { Box, Flex, FlexList, NavButtonLink, NavLink } from "./ui"
 import Caret from "./caret"
@@ -5,15 +6,12 @@ import * as styles from "./nav-item-group.css"
 import { media } from "./ui.css"
 
 export default function NavItemGroup({ name, navItems }: any) {
-  // @ts-expect-error TS(2686): 'React' refers to a UMD global, but the current fi... Remove this comment to see the full error message
-  const [isOpen, setIsOpen] = React.useState(false)
-  // @ts-expect-error TS(2686): 'React' refers to a UMD global, but the current fi... Remove this comment to see the full error message
-  const [popupVisible, setPopupVisible] = React.useState(false)
+  const [isOpen, setIsOpen] = useState(false)
+  const [popupVisible, setPopupVisible] = useState(false)
   const isSmallScreen = () => {
     return !window.matchMedia(media.small).matches
   }
-  // @ts-expect-error TS(2686): 'React' refers to a UMD global, but the current fi... Remove this comment to see the full error message
-  const onGroupButtonClick = React.useCallback(() => {
+  const onGroupButtonClick = useCallback(() => {
     if (!isOpen) {
       setIsOpen(true)
       setPopupVisible(true)
@@ -26,8 +24,7 @@ export default function NavItemGroup({ name, navItems }: any) {
     }
   }, [isOpen])
 
-  // @ts-expect-error TS(2686): 'React' refers to a UMD global, but the current fi... Remove this comment to see the full error message
-  React.useEffect(() => {
+  useEffect(() => {
     // crude implementation of animating the popup without a library
     const popupBox = document.querySelector(`[data-id="${name}-popup-box"]`)
     const onAnimationEnd = ({ animationName }: any) => {
@@ -43,8 +40,7 @@ export default function NavItemGroup({ name, navItems }: any) {
     }
   }, [isOpen, name])
 
-  // @ts-expect-error TS(2686): 'React' refers to a UMD global, but the current fi... Remove this comment to see the full error message
-  React.useEffect(() => {
+  useEffect(() => {
     // hide menu when clicked outside
     const handleClickOutside = (event: any) => {
       const wrapper = document.querySelector(

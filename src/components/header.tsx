@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import { Menu, X } from "react-feather"
 import {
@@ -59,11 +60,9 @@ export default function Header() {
   `)
 
   const { navItems, cta } = data.layout.header
-  // @ts-expect-error TS(2686): 'React' refers to a UMD global, but the current fi... Remove this comment to see the full error message
-  const [isOpen, setOpen] = React.useState(false)
+  const [isOpen, setOpen] = useState(false)
 
-  // @ts-expect-error TS(2686): 'React' refers to a UMD global, but the current fi... Remove this comment to see the full error message
-  React.useEffect(() => {
+  useEffect(() => {
     if (isOpen) {
       document.body.style.overflowY = "hidden"
     } else {
