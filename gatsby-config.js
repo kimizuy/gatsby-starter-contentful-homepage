@@ -40,4 +40,5 @@ module.exports = {
     },
   ],
   jsxRuntime: "automatic",
+  graphqlTypegen: true,
 }
