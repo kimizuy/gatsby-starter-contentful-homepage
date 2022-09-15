@@ -1,4 +1,3 @@
-import * as React from "react"
 import { graphql } from "gatsby"
 import { Container, Heading, FlexList, LinkList, Section, Box } from "./ui"
 import { LogoItem } from "./logo-list"

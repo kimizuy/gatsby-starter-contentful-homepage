@@ -1,4 +1,3 @@
-import * as React from "react"
 import { graphql } from "gatsby"
 import { Space, Container, Section, FlexList, Text, Logo } from "./ui"
 

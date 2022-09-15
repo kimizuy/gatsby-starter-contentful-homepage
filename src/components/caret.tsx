@@ -1,4 +1,3 @@
-import * as React from "react"
 import { caret } from "./caret.css"
 
 export default function CaretDown({ direction = "down", size = 9 }) {
