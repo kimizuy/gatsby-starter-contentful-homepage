@@ -39,7 +39,9 @@ function AboutProfile(props: any) {
   )
 }
 
-export default function AboutLeadership(props: any) {
+type Props = Queries.AboutLeadershipContentFragment
+
+export default function AboutLeadership(props: Props) {
   return (
     <Section>
       <Container width="tight">
@@ -49,8 +51,8 @@ export default function AboutLeadership(props: any) {
           {props.subhead && <Text>{props.subhead}</Text>}
         </Box>
         <FlexList gap={0} variant="center" alignItems="start">
-          {props.content.map((profile: any) => (
-            <AboutProfile key={profile.id} {...profile} />
+          {props.content?.map((profile) => (
+            <AboutProfile key={profile?.id} {...profile} />
           ))}
         </FlexList>
       </Container>

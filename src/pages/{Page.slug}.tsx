@@ -1,18 +1,20 @@
-import { graphql } from "gatsby"
+import { graphql, PageProps } from "gatsby"
 import Layout from "../components/layout"
 import { Container, Box, Heading } from "../components/ui"
 
-export default function Page(props: any) {
+type Props = PageProps<Queries.PageContentQuery>
+
+export default function Page(props: Props) {
   const { page } = props.data
 
   return (
     <Layout {...page}>
       <Box paddingY={5}>
         <Container width="narrow">
-          <Heading as="h1">{page.title}</Heading>
+          <Heading as="h1">{page?.title}</Heading>
           <div
             dangerouslySetInnerHTML={{
-              __html: page.html,
+              __html: page?.html || "",
             }}
           />
         </Container>
