@@ -53,17 +53,20 @@ const socialMedia = {
   },
 }
 
-const getSocialURL = ({ service, username }) => {
+const getSocialURL = ({ service, username }: any) => {
+  // @ts-expect-error TS(7053): Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
   const domain = socialMedia[service]?.url
   if (!domain) return false
   return `${domain}/${username}`
 }
 
-const getSocialIcon = ({ service }) => {
+const getSocialIcon = ({ service }: any) => {
+  // @ts-expect-error TS(7053): Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
   return socialMedia[service]?.icon
 }
 
-const getSocialName = ({ service }) => {
+const getSocialName = ({ service }: any) => {
+  // @ts-expect-error TS(7053): Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
   return socialMedia[service]?.name
 }
 
@@ -107,7 +110,7 @@ export default function Footer() {
           <Space />
           <FlexList>
             {socialLinks &&
-              socialLinks.map((link) => {
+              socialLinks.map((link: any) => {
                 const url = getSocialURL(link)
                 return (
                   url && (
@@ -122,11 +125,12 @@ export default function Footer() {
               })}
           </FlexList>
         </Flex>
+        {/* @ts-expect-error TS(2322): Type 'number' is not assignable to type 'string'. */}
         <Space size={5} />
         <Flex variant="start" responsive>
           <FlexList variant="start" responsive>
             {links &&
-              links.map((link) => (
+              links.map((link: any) => (
                 <li key={link.id}>
                   <NavLink to={link.href}>{link.text}</NavLink>
                 </li>
@@ -135,7 +139,7 @@ export default function Footer() {
           <Space />
           <FlexList>
             {meta &&
-              meta.map((link) => (
+              meta.map((link: any) => (
                 <li key={link.id}>
                   <NavLink to={link.href}>
                     <Text variant="small">{link.text}</Text>
@@ -146,6 +150,7 @@ export default function Footer() {
           <Text variant="small">{copyright}</Text>
         </Flex>
       </Container>
+      {/* @ts-expect-error TS(2322): Type 'number' is not assignable to type 'string'. */}
       <Space size={3} />
     </Box>
   )

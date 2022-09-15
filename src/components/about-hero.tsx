@@ -3,7 +3,7 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { Container, Section, Text, SuperHeading } from "./ui"
 import * as styles from "./about-hero.css"
 
-export default function AboutHero(props) {
+export default function AboutHero(props: any) {
   return (
     <Section>
       <Container>
@@ -18,6 +18,7 @@ export default function AboutHero(props) {
         {props.image && (
           <GatsbyImage
             alt={props.image.alt}
+            // @ts-expect-error TS(2322): Type 'IGatsbyImageData | undefined' is not assigna... Remove this comment to see the full error message
             image={getImage(props.image.gatsbyImageData)}
             className={styles.aboutHeroImage}
           />

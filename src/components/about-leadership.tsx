@@ -11,15 +11,17 @@ import {
   Space,
 } from "./ui"
 
-function AboutProfile(props) {
+function AboutProfile(props: any) {
   return (
     <Box width="third" padding={4} center>
       {props.image && (
         <GatsbyImage
           alt={props.image.alt}
+          // @ts-expect-error TS(2322): Type 'IGatsbyImageData | undefined' is not assigna... Remove this comment to see the full error message
           image={getImage(props.image.gatsbyImageData)}
         />
       )}
+      {/* @ts-expect-error TS(2322): Type 'number' is not assignable to type 'string'. */}
       <Space size={3} />
       <Box>
         {props.name && (
@@ -37,7 +39,7 @@ function AboutProfile(props) {
   )
 }
 
-export default function AboutLeadership(props) {
+export default function AboutLeadership(props: any) {
   return (
     <Section>
       <Container width="tight">
@@ -47,7 +49,7 @@ export default function AboutLeadership(props) {
           {props.subhead && <Text>{props.subhead}</Text>}
         </Box>
         <FlexList gap={0} variant="center" alignItems="start">
-          {props.content.map((profile) => (
+          {props.content.map((profile: any) => (
             <AboutProfile key={profile.id} {...profile} />
           ))}
         </FlexList>

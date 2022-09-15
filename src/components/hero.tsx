@@ -13,7 +13,7 @@ import {
   Text,
 } from "./ui"
 
-export default function Hero(props) {
+export default function Hero(props: any) {
   return (
     <Section>
       <Container>
@@ -22,6 +22,7 @@ export default function Hero(props) {
             {props.image && (
               <GatsbyImage
                 alt={props.image.alt}
+                // @ts-expect-error TS(2322): Type 'IGatsbyImageData | undefined' is not assigna... Remove this comment to see the full error message
                 image={getImage(props.image.gatsbyImageData)}
               />
             )}

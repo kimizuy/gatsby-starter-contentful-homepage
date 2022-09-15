@@ -10,7 +10,7 @@ import {
   Space,
 } from "./ui"
 
-function Benefit(props) {
+function Benefit(props: any) {
   return (
     <Box as="li" width="third" padding={4} paddingY={3}>
       {props.image && (
@@ -20,6 +20,7 @@ function Benefit(props) {
           size="small"
         />
       )}
+      {/* @ts-expect-error TS(2322): Type 'number' is not assignable to type 'string'. */}
       <Space size={2} />
       <Heading variant="subheadSmall">{props.heading}</Heading>
       <Text>{props.text}</Text>
@@ -27,7 +28,7 @@ function Benefit(props) {
   )
 }
 
-export default function BenefitList(props) {
+export default function BenefitList(props: any) {
   return (
     <Section>
       <Container>
@@ -35,9 +36,10 @@ export default function BenefitList(props) {
           {props.heading && <Heading>{props.heading}</Heading>}
           {props.text && <Text variant="lead">{props.text}</Text>}
         </Box>
+        {/* @ts-expect-error TS(2322): Type 'number' is not assignable to type 'string'. */}
         <Space size={3} />
         <FlexList gutter={3} variant="start" responsive wrap>
-          {props.content.map((benefit) => (
+          {props.content.map((benefit: any) => (
             <Benefit key={benefit.id} {...benefit} />
           ))}
         </FlexList>

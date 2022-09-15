@@ -2,7 +2,7 @@ import { graphql } from "gatsby"
 import { Container, Heading, FlexList, LinkList, Section, Box } from "./ui"
 import { LogoItem } from "./logo-list"
 
-export default function AboutLogoList(props) {
+export default function AboutLogoList(props: any) {
   return (
     <Section>
       <Container>
@@ -14,7 +14,7 @@ export default function AboutLogoList(props) {
       <Container width="narrow">
         <Box paddingY={6}>
           <FlexList gap={5} variant="center">
-            {props.logos.map((logo, i) => (
+            {props.logos.map((logo: any, i: any) => (
               <li key={`${logo.id}-${i}`}>
                 <LogoItem {...logo} />
               </li>

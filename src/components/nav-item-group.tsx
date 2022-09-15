@@ -4,12 +4,15 @@ import Caret from "./caret"
 import * as styles from "./nav-item-group.css"
 import { media } from "./ui.css"
 
-export default function NavItemGroup({ name, navItems }) {
+export default function NavItemGroup({ name, navItems }: any) {
+  // @ts-expect-error TS(2686): 'React' refers to a UMD global, but the current fi... Remove this comment to see the full error message
   const [isOpen, setIsOpen] = React.useState(false)
+  // @ts-expect-error TS(2686): 'React' refers to a UMD global, but the current fi... Remove this comment to see the full error message
   const [popupVisible, setPopupVisible] = React.useState(false)
   const isSmallScreen = () => {
     return !window.matchMedia(media.small).matches
   }
+  // @ts-expect-error TS(2686): 'React' refers to a UMD global, but the current fi... Remove this comment to see the full error message
   const onGroupButtonClick = React.useCallback(() => {
     if (!isOpen) {
       setIsOpen(true)
@@ -23,10 +26,11 @@ export default function NavItemGroup({ name, navItems }) {
     }
   }, [isOpen])
 
+  // @ts-expect-error TS(2686): 'React' refers to a UMD global, but the current fi... Remove this comment to see the full error message
   React.useEffect(() => {
     // crude implementation of animating the popup without a library
     const popupBox = document.querySelector(`[data-id="${name}-popup-box"]`)
-    const onAnimationEnd = ({ animationName }) => {
+    const onAnimationEnd = ({ animationName }: any) => {
       if (animationName === `zoomOutDown`) {
         setIsOpen(false)
       }
@@ -39,9 +43,10 @@ export default function NavItemGroup({ name, navItems }) {
     }
   }, [isOpen, name])
 
+  // @ts-expect-error TS(2686): 'React' refers to a UMD global, but the current fi... Remove this comment to see the full error message
   React.useEffect(() => {
     // hide menu when clicked outside
-    const handleClickOutside = (event) => {
+    const handleClickOutside = (event: any) => {
       const wrapper = document.querySelector(
         `[data-id="${name}-group-wrapper"]`
       )
@@ -89,13 +94,14 @@ export default function NavItemGroup({ name, navItems }) {
             gap={2}
             className={styles.navLinkListWrapperInner}
           >
-            {navItems.map((navItem) => (
+            {navItems.map((navItem: any) => (
               <li key={navItem.id}>
                 <NavLink to={navItem.href} className={styles.navLinkListLink}>
                   <Flex variant="start" gap={3}>
                     {navItem.icon && (
                       <GatsbyImage
                         alt={navItem.icon.alt}
+                        // @ts-expect-error TS(2322): Type 'IGatsbyImageData | undefined' is not assigna... Remove this comment to see the full error message
                         image={getImage(navItem.icon.gatsbyImageData)}
                         className={styles.navIcon}
                       />

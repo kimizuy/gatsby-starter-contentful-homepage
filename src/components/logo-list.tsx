@@ -1,7 +1,7 @@
 import { graphql } from "gatsby"
 import { Space, Container, Section, FlexList, Text, Logo } from "./ui"
 
-export function LogoItem(props) {
+export function LogoItem(props: any) {
   if (!props.image) return null
 
   return (
@@ -9,7 +9,7 @@ export function LogoItem(props) {
   )
 }
 
-export default function LogoList(props) {
+export default function LogoList(props: any) {
   return (
     <Section paddingY={4}>
       <Container width="narrow">
@@ -18,10 +18,11 @@ export default function LogoList(props) {
             {props.text}
           </Text>
         )}
+        {/* @ts-expect-error TS(2322): Type 'number' is not assignable to type 'string'. */}
         <Space size={4} />
         <FlexList gap={4} variant="center">
           {props.logos.map(
-            (logo) =>
+            (logo: any) =>
               logo && (
                 <li key={logo.id}>
                   <LogoItem {...logo} />

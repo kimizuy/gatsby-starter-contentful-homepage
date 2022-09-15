@@ -1,6 +1,7 @@
+// @ts-expect-error TS(7016): Could not find a declaration file for module 'reac... Remove this comment to see the full error message
 import { Helmet } from "react-helmet"
 
-export default function Head({ title, description, image }) {
+export default function Head({ title, description, image }: any) {
   return (
     <Helmet
       htmlAttributes={{

@@ -3,7 +3,7 @@ import Footer from "./footer"
 import Head from "./head"
 import "../styles.css"
 
-const Layout = (props) => {
+const Layout = (props: any) => {
   return (
     <>
       <Head {...props} />

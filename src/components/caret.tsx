@@ -11,6 +11,7 @@ export default function CaretDown({ direction = "down", size = 9 }) {
       viewBox="0 0 9 8"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      // @ts-expect-error TS(7053): Element implicitly has an 'any' type because expre... Remove this comment to see the full error message
       className={caret[direction]}
     >
       <path

@@ -59,8 +59,10 @@ export default function Header() {
   `)
 
   const { navItems, cta } = data.layout.header
+  // @ts-expect-error TS(2686): 'React' refers to a UMD global, but the current fi... Remove this comment to see the full error message
   const [isOpen, setOpen] = React.useState(false)
 
+  // @ts-expect-error TS(2686): 'React' refers to a UMD global, but the current fi... Remove this comment to see the full error message
   React.useEffect(() => {
     if (isOpen) {
       document.body.style.overflowY = "hidden"
@@ -72,6 +74,7 @@ export default function Header() {
   return (
     <header>
       <Container className={desktopHeaderNavWrapper}>
+        {/* @ts-expect-error TS(2322): Type 'number' is not assignable to type 'string'. */}
         <Space size={2} />
         <Flex variant="spaceBetween">
           <NavLink to="/">
@@ -81,7 +84,7 @@ export default function Header() {
           <nav>
             <FlexList gap={4}>
               {navItems &&
-                navItems.map((navItem) => (
+                navItems.map((navItem: any) => (
                   <li key={navItem.id}>
                     {navItem.navItemType === "Group" ? (
                       <NavItemGroup
@@ -99,6 +102,7 @@ export default function Header() {
         </Flex>
       </Container>
       <Container className={mobileHeaderNavWrapper[isOpen ? "open" : "closed"]}>
+        {/* @ts-expect-error TS(2322): Type 'number' is not assignable to type 'string'. */}
         <Space size={2} />
         <Flex variant="spaceBetween">
           <span
@@ -138,7 +142,7 @@ export default function Header() {
         <div className={mobileNavOverlay}>
           <nav>
             <FlexList responsive variant="stretch">
-              {navItems?.map((navItem) => (
+              {navItems?.map((navItem: any) => (
                 <li key={navItem.id}>
                   {navItem.navItemType === "Group" ? (
                     <NavItemGroup

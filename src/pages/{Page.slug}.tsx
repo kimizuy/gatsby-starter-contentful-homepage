@@ -2,7 +2,7 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import { Container, Box, Heading } from "../components/ui"
 
-export default function Page(props) {
+export default function Page(props: any) {
   const { page } = props.data
 
   return (

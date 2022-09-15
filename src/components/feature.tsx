@@ -11,7 +11,7 @@ import {
   ButtonList,
 } from "./ui"
 
-export default function Feature(props) {
+export default function Feature(props: any) {
   return (
     <Section padding={4} background="muted">
       <Container>
@@ -20,6 +20,7 @@ export default function Feature(props) {
             {props.image && (
               <GatsbyImage
                 alt={props.image.alt}
+                // @ts-expect-error TS(2322): Type 'IGatsbyImageData | undefined' is not assigna... Remove this comment to see the full error message
                 image={getImage(props.image.gatsbyImageData)}
               />
             )}

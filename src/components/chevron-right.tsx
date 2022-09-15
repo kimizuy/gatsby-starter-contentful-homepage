@@ -1,4 +1,4 @@
-export default function ChevronRight(props) {
+export default function ChevronRight(props: any) {
   return (
     <svg
       viewBox="0 0 7 11"

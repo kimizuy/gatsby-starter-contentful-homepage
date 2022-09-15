@@ -14,7 +14,7 @@ import {
   Nudge,
 } from "./ui"
 
-function Stat(props) {
+function Stat(props: any) {
   return (
     <Box>
       <Text variant="stat">{props.value}</Text>
@@ -23,7 +23,7 @@ function Stat(props) {
   )
 }
 
-export default function StatList(props) {
+export default function StatList(props: any) {
   return (
     <Container width="fullbleed">
       <Section padding={5} radius="large" background="primary">
@@ -38,7 +38,7 @@ export default function StatList(props) {
             </Heading>
             {props.text && <Text variant="lead">{props.text}</Text>}
             <FlexList wrap gap={4}>
-              {props.content.map((stat) => (
+              {props.content.map((stat: any) => (
                 <li key={stat.id}>
                   <Stat {...stat} />
                 </li>
@@ -51,6 +51,7 @@ export default function StatList(props) {
               <Nudge right={5} bottom={5}>
                 <GatsbyImage
                   alt={props.image.alt}
+                  // @ts-expect-error TS(2322): Type 'IGatsbyImageData | undefined' is not assigna... Remove this comment to see the full error message
                   image={getImage(props.image.gatsbyImageData)}
                 />
               </Nudge>

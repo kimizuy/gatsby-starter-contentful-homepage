@@ -2,7 +2,7 @@ import { graphql } from "gatsby"
 import { Container, Box, Kicker, Heading, Text } from "./ui"
 import Feature from "./feature"
 
-export default function FeatureList(props) {
+export default function FeatureList(props: any) {
   return (
     <Container width="fullbleed">
       <Box background="muted" radius="large">
@@ -13,7 +13,7 @@ export default function FeatureList(props) {
           </Heading>
           {props.text && <Text>{props.text}</Text>}
         </Box>
-        {props.content.map((feature, i) => (
+        {props.content.map((feature: any, i: any) => (
           <Feature key={feature.id} {...feature} flip={Boolean(i % 2)} />
         ))}
       </Box>

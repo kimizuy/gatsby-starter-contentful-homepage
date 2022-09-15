@@ -12,7 +12,7 @@ import {
 import { avatar as avatarStyle } from "../components/ui.css"
 import * as styles from "./blog-post.css"
 
-export default function BlogPost(props) {
+export default function BlogPost(props: any) {
   return (
     <Layout {...props} description={props.excerpt}>
       <Container>
@@ -20,6 +20,7 @@ export default function BlogPost(props) {
           <Heading as="h1" center>
             {props.title}
           </Heading>
+          {/* @ts-expect-error TS(2322): Type 'number' is not assignable to type 'string'. */}
           <Space size={4} />
           {props.author && (
             <Box center>
@@ -41,8 +42,10 @@ export default function BlogPost(props) {
               </Flex>
             </Box>
           )}
+          {/* @ts-expect-error TS(2322): Type 'number' is not assignable to type 'string'. */}
           <Space size={4} />
           <Text center>{props.date}</Text>
+          {/* @ts-expect-error TS(2322): Type 'number' is not assignable to type 'string'. */}
           <Space size={4} />
           {props.image && (
             <GatsbyImage
@@ -50,6 +53,7 @@ export default function BlogPost(props) {
               image={props.image.gatsbyImageData}
             />
           )}
+          {/* @ts-expect-error TS(2322): Type 'number' is not assignable to type 'string'. */}
           <Space size={5} />
           <div
             className={styles.blogPost}

@@ -12,7 +12,7 @@ import {
   LinkList,
 } from "./ui"
 
-function Product(props) {
+function Product(props: any) {
   return (
     <Box center>
       {props.image && (
@@ -29,7 +29,7 @@ function Product(props) {
   )
 }
 
-export default function ProductList(props) {
+export default function ProductList(props: any) {
   return (
     <Section>
       <Container>
@@ -41,7 +41,7 @@ export default function ProductList(props) {
           {props.text && <Text>{props.text}</Text>}
         </Box>
         <FlexList gap={4} variant="responsive">
-          {props.content.map((product) => (
+          {props.content.map((product: any) => (
             <li key={product.id}>
               <Product {...product} />
             </li>

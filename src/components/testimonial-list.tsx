@@ -12,7 +12,7 @@ import {
   Avatar,
 } from "./ui"
 
-function Testimonial(props) {
+function Testimonial(props: any) {
   return (
     <Flex variant="start">
       {props.avatar && (
@@ -32,7 +32,7 @@ function Testimonial(props) {
   )
 }
 
-export default function TestimonialList(props) {
+export default function TestimonialList(props: any) {
   return (
     <Section>
       <Container>
@@ -43,7 +43,7 @@ export default function TestimonialList(props) {
           </Heading>
         </Box>
         <FlexList gutter={3} variant="start" responsive wrap>
-          {props.content.map((testimonial, index) => (
+          {props.content.map((testimonial: any, index: any) => (
             <Box as="li" key={testimonial.id + index} width="half" padding={3}>
               <Testimonial {...testimonial} />
             </Box>
